@@ -1,0 +1,35 @@
+
+<div *ngIf="notempty()">
+  <h3>Cart Items</h3>
+</div>
+<div *ngIf="!notempty()">
+  <h3>Cart Is Empty</h3>
+
+    <!-- <button type="button" (click)="backClicked()">Add Items</button> -->
+      <button type="button" (click)="cartlist()">Add Items</button>
+</div>
+<div class="cart-item" *ngFor="let item of items;let i= index;">
+
+
+  <span>{{item.name}}</span>
+  <span>{{item.cost}}</span>
+
+</div>
+<div *ngIf="">
+
+</div>
+<!-- <button type="button" name="button">Clear Cart</button> -->
+<br><br>
+<form [formGroup]="checkoutform" (ngSubmit)="onSubmit(checkoutform.value)">
+  <div >
+    <label for="name">Name:</label><br>
+    <input type="text"  formControlName="name">
+  </div>
+  <br>
+
+  <div >
+    <label for="address">Address:</label><br>
+    <input type="text"  formControlName="address">
+  </div><br>
+  <button type="submit" name="button">order</button>
+</form>
